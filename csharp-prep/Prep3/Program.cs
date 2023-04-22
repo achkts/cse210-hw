@@ -11,21 +11,22 @@ class Program
         // string numberM = Console.ReadLine();
         // int magicNumber = int.Parse(numberM);
         var rand = new Random();
-        
+
 
         string response;
         Console.WriteLine("Welcome to the number guessing game!");
-        
+
         do
-        {   int magicNumber = rand.Next(1, 100);
-            
+        {
+            int magicNumber = rand.Next(1, 100);
+
 
             int userGuess = -1;
             int guessCount = 0;
 
             do
             {
-            
+
                 Console.Write("What is your guess? ");
                 string guess = Console.ReadLine();
                 userGuess = int.Parse(guess);
@@ -49,7 +50,7 @@ class Program
             Console.Write("Do you want to play again? ");
             response = Console.ReadLine();
         } while (response == "yes");
-    
+
 
 
 

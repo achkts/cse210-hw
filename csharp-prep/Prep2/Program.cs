@@ -12,7 +12,7 @@ class Program
 
         string letter = "";
 
-        int lastDigit = percentage%10;
+        int lastDigit = percentage % 10;
 
         if (percentage >= 90)
         {
@@ -38,14 +38,14 @@ class Program
         {
             letter = letter + "+";
         }
-        else if (lastDigit <3)
+        else if (lastDigit < 3)
         {
             letter = letter + "-";
         }
-       if (letter == "A+" || letter == "F-" || letter == "F+")
-       {
-            letter = letter.Substring(0,1);
-       }
+        if (letter == "A+" || letter == "F-" || letter == "F+")
+        {
+            letter = letter.Substring(0, 1);
+        }
 
         Console.WriteLine($"Your letter grade: {letter}");
 
