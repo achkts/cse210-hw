@@ -51,6 +51,21 @@ class Program
         int maxNumber = numbers.Max();
         Console.WriteLine($"The largest number is: {maxNumber}");
 
+        // Find the smallest positive number.
+
+        int minNumber = numbers.Min();
+        Console.WriteLine($"The smallest positive number is: {minNumber}");
+
+
+        // Sort the numbers and display new list.
+        Console.WriteLine("The sorted list is: ");
+        foreach (int n in numbers)
+        {
+        Console.WriteLine(n);
+        }
+
+        
+
 
     }
 }
