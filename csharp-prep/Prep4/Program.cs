@@ -7,7 +7,6 @@ class Program
     {
         Console.WriteLine("Hello Prep4 World!"); 
 
-        
 
         // Create a list of numbers.
         List<int> numbers = new List<int>();
