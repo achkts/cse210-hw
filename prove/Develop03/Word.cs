@@ -15,12 +15,12 @@ class Word
 
     }
 
-    public bool GetHidden()
+    public bool GetIsHidden()
     {
         return isHidden;
     }
 
-    public void SetHiddenWord(bool _isHidden)
+    public void SetIsHidden(bool _isHidden)
     {
         isHidden = _isHidden;
     }

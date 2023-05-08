@@ -23,14 +23,27 @@ class Scripture
         return "";
     }
 
-    public string RemoveWords()
+    public void RemoveWords()
     {
-        return "";
+        int numberWordsToRemove = new Random().Next(3, 5);
+        int wordsRemoved = 0;
+        
+        do
+        {
+            int rndIndex = new Random().Next(0, words.Count());
+            if (words[rndIndex].GetIsHidden() == false)
+            {
+                words[rndIndex].SetIsHidden(true);
+                wordsRemoved++;
+            }
+        }while (wordsRemoved != numberWordsToRemove && this.HasWordsLeft());
     }
 
-    public string WordsLeft()
+    public string HasWordsLeft()
     {
+       
         return "";
+        
     }
 
 }
