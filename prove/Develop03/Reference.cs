@@ -3,28 +3,35 @@ using System;
 class Reference
 {
     // attributes
-    private string _verseStart, _verseEnd, _chapter, _book;
+    private string verseStart, verseEnd, chapter, book;
 
     // constructor
     public Reference(string _book, string _chapter, string _verseStart)
     {
-        string book = _book;
-        string chapter = _chapter;
-        string verseStart = _verseStart;
+        book = _book;
+        chapter = _chapter;
+        verseStart = _verseStart;
 
     }
 
     public Reference(string _book, string _chapter, string _verseStart, string _verseEnd)
     {
-        string book = _book;
-        string chapter = _chapter;
-        string verseStart = _verseStart;
-        string verseEnd = _verseEnd;
+        book = _book;
+        chapter = _chapter;
+        verseStart = _verseStart;
+        verseEnd = _verseEnd;
     }
 
-    public GetReference()
+    public string GetReference()
     {
-        return " ";
+        if (verseEnd == null)
+        {
+            return $"{book} {chapter}:{verseStart}";
+        }
+        else{
+            return $"{book} {chapter}:{verseStart}-{verseEnd}";
+        }
+        
     }
 
 }

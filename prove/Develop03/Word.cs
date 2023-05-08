@@ -4,27 +4,29 @@ using System.Collections.Generic;
 class Word
 {
     // attributes
-    private string _word;
-    private bool _isHidden;
+    private string word;
+    private bool isHidden;
 
     // constructor
     public Word(string _word)
     {
         word = _word;
+        isHidden = false;
+
     }
 
-    public GetHidden()
+    public bool GetHidden()
     {
         return isHidden;
     }
 
-    public SetHiddenWord(bool _isHidden)
+    public void SetHiddenWord(bool _isHidden)
     {
-
+        isHidden = _isHidden;
     }
 
-    public GetWord()
+    public string GetWord()
     {
-        return
+        return word;
     }
 }

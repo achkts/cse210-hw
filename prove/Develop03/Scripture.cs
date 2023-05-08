@@ -3,31 +3,34 @@ using System.Collections.Generic;
 
 class Scripture
 {
-    private Reference _scriptureReference;
+    private Reference scriptureReference;
     private List<Word> words;
 
-    public Scripture(Reference _scriptureReference, string )
+    public Scripture(Reference _scriptureReference, string scripture)
     {
-       
+       scriptureReference = _scriptureReference;
+       var scriptureWords = scripture.Split(" ");
+       words = 
     }
 
-    public CreateWords()
+    public void CreateWords()
     {
 
     }
     public string DisplayScripture()
     {
-        return 
+
+        return "";
     }
 
     public string RemoveWords()
     {
-
+        return "";
     }
 
     public string WordsLeft()
     {
-
+        return "";
     }
 
 }
