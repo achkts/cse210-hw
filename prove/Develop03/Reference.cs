@@ -11,6 +11,7 @@ class Reference
         book = _book;
         chapter = _chapter;
         verseStart = _verseStart;
+        verseEnd = null;
 
     }
 
@@ -28,7 +29,8 @@ class Reference
         {
             return $"{book} {chapter}:{verseStart}";
         }
-        else{
+        else
+        {
             return $"{book} {chapter}:{verseStart}-{verseEnd}";
         }
         

@@ -11,7 +11,6 @@ class Word
     public Word(string _word)
     {
         word = _word;
-        isHidden = false;
 
     }
 

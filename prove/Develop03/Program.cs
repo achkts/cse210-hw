@@ -6,18 +6,19 @@ class Program
     {
         Console.WriteLine("Hello Develop03 World!");
 
-        Reference scriptureReference = new Reference("John", "3", "16");
-        Scripture scripture = new Scripture(scriptureReference, "For God so loved the world, that he gave his sonly begotten Son, that whosoever believeth in him should not perish, but have everlasting life."
-        "");
+        
+        Scripture scripture = new ScriptureGenerator().GetRandomScripture();
 
         string userInput = "";
 
         while (userInput != "quit" && scripture.HasWordsLeft() == true)
         {
             Console.Clear();
+            // Display scripture
             Console.WriteLine(scripture.DisplayScripture());
             Console.WriteLine();
-            Console.ReadLine();
+            Console.WriteLine("Press enter to continue or 'quit' to finish: ");
+            userInput = Console.ReadLine();
             scripture.RemoveWords();
         }
 
