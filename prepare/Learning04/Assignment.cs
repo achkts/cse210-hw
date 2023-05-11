@@ -1,9 +1,9 @@
 using System;
 
-class Assignment
+public class Assignment
 {
-    private string studentName;
-    private string topic;
+    protected string studentName;
+    protected string topic;
 
 
     public Assignment(string _studentName, string _topic)
@@ -12,10 +12,10 @@ class Assignment
         topic = _topic;
 
     }
-
+    
     public string GetSummary()
     {
         
-        return $"{studentName}, {topic}";
+        return $"{studentName} - {topic}";
     }
 }
