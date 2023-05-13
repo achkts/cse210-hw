@@ -8,14 +8,13 @@ class Program
     {
         Console.WriteLine("Hello Develop04 World!");
 
-        Activty activity = new Activity();
 
         int menuUserInput = 0;
 
         // Create menu and user input variables
         List<string> menu = new List<string>
         {
-            "\nPlease select one of the following choices:",
+            "\nMenu Options:",
             "1. Start breathing activity",
             "2. Start reflecting activity",
             "3. Start listing activity",
@@ -43,22 +42,45 @@ class Program
             if (menuUserInput == 1)
             {
                 // Start breathing activity.
-                journal.CreateJournalEntry();
+                BreathingActivity activity = new BreathingActivity(5, 5, 5);
+                activity.GetStartMessage();
+                activity.GetSpinner();
+                activity.RunActivity();
+                activity.GetEndMessage();
+                
             }
+
             else if (menuUserInput == 2)
             {
                 // Start reflecting activity.
-                journal.DisplayJournalEntries();
+                ReflectionActivity activity = new ReflectionActivity();
+                activity.GetStartMessage();
+                Console.WriteLine("\n");
+                activity.GetSpinner();
+                activity.RunActivity();
+                activity.GetEndMessage();
+
             }
+
             else if (menuUserInput == 3)
             {
                 // Start listing activity.
-                journal.SaveToCSV();
+                ListingActivity activity = new ListingActivity();
+                activity.GetStartMessage();
+                Console.WriteLine("\n");
+                activity.GetSpinner();
+                activity.RunActivity();
+                activity.GetEndMessage();
             }
+
             else 
             {
-                Console.WriteLine("Thank you for taking care of yourself today!");
+                Activity activity = new Activity("", "", 0);
+                string quotes = activity.GetInspirationalQuotes();
+                Console.WriteLine(quotes);
+
+                
             }
-        } while (menuUserInput != 5);
+        } while (menuUserInput != 4);
     }
 }
