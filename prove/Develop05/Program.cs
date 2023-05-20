@@ -7,13 +7,20 @@ class Program
         Console.WriteLine("Hello Develop05 World!");
 
         int menuUserInput = 0;
+        int totalPoints = 0;
+        
+        List<Goal> goals = new List<Goal>();
 
+        Console.WriteLine("Hello there! What is your name? ");
+        string person = Console.ReadLine();
 
+        Console.WriteLine($"Welcome, {person}, to the Goal Setter!");
+
+        
 
         // Create menu and user input variables
         List<string> menu = new List<string>
         {
-
             "\nMenu Options:",
             "1. Create New Goal",
             "2. List Goals",
@@ -26,7 +33,9 @@ class Program
 
         // While user input is not 6
         do
-        {
+        {   
+            // totalPoints = _points
+
             foreach(string menuItem in menu)
             {
                 Console.WriteLine(menuItem);
@@ -46,7 +55,7 @@ class Program
                 // Create new Goal.
                 // Ask user which goal like to do.
                 // 
-                GoalsMenu();
+                GoalsMenu(goals);
                 
             }
 
@@ -54,7 +63,13 @@ class Program
             {
                 // List Goals.
                 Console.WriteLine("List goals...");
-                Console.ReadLine();
+                
+                foreach (Goal goal in goals)
+                {
+                    string summary = goal.GetGoalSummary();
+                    Console.WriteLine(summary);
+                }
+                
                 Console.WriteLine("Great list!"); 
 
             }
@@ -62,12 +77,17 @@ class Program
             else if (menuUserInput == 3)
             {
                 // Save goals to a file.
+                goals.SaveToCSV();
+
                 Console.WriteLine("Saving goals...");
             }
 
             else if (menuUserInput == 4)
             {
                 // Load goals from a file.
+                goals.LoadToCSV();
+
+                
                 Console.WriteLine("Loading Goals...");
                 
             }
@@ -75,6 +95,17 @@ class Program
             else if (menuUserInput == 5)
             {
                 // Record Event.
+
+                // list goals
+                // foreach (Goal goal in goals)
+                // {
+                //     string summary = goal.GetGoalSummary();
+                //     Console.WriteLine(summary);
+                // }
+                // select goal
+
+                //total += goals[electedIndex].RecordEvent()
+
                 Console.WriteLine("Recording event...");
             }
 
@@ -87,7 +118,7 @@ class Program
         } while (menuUserInput != 6);
     }
 
-    public static void GoalsMenu()
+    public static void GoalsMenu(List<Goal> goals)
     {
          int menuUserInput = 0;
 
@@ -121,33 +152,26 @@ class Program
             // Switch statement for user input.
             if (menuUserInput == 1)
             {
-                Goals goal = new Goals();
-                goal.GetQuestions();
-                //1
-                //ask title,desc,point
-                //new SimpleGoal(name, desc, point)
-
-                //2
-                //s =new SimpleGoal()
-                //s.AskDetails()
-
-
-                // call  simple Goal
-                Console.WriteLine("Running Simple Goal...");
+                Simple s = new Simple();
+                s.CreateGoal();
+                goals.Add(s);
                 
             }
 
             else if (menuUserInput == 2)
             {
                 // call Eternal Goals program.
-                Console.WriteLine("Running Eternal Goal...");
+                Eternal e = new Eternal();
+                e.CreateGoal();
+                goals.Add(e);
 
             }
 
             else if (menuUserInput == 3)
             {
-                // Call Checklist Goal program.
-                Console.WriteLine("Running Checklist Goal...");
+                Checklist c = new Checklist();
+                c.CreateGoal();
+                goals.Add(c);
             }
 
         } while (menuUserInput != 4);

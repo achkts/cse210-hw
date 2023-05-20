@@ -1,6 +1,6 @@
 using System;
 
-public class Simple : Goals
+public class Simple : Goal
 {
     private bool _completed;
 
@@ -10,11 +10,41 @@ public class Simple : Goals
         _completed = completed;
 
     }
-    
+
+    public Simple()
+    {
+
+    }
+
+    public override string GetGoalSummary()
+    {
+        if (IsComplete() == true)
+        {
+            return $"[X]  {_name}, {_description}";
+        }
+        else 
+        {
+            return $"[ ]  {_name}, {_description}";
+        }
+        
+    }
 
     public override bool IsComplete()
     {
-        return true;
+        return _completed;
+    }
+
+    public override int RecordEvent()
+    {
+        if (IsComplete() == true)
+        {
+            return _points;
+        }
+        else
+        {
+            return 0;
+        }
+        
     }
 
 }
