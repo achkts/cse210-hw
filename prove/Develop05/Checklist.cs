@@ -26,11 +26,11 @@ public class Checklist : Goal
         base.CreateGoal();
         Console.Write("How many times does this goal need to be accomplished for a bonus? ");
         Console.ReadLine();
-         _goalCompletion = int.Parse(Console.ReadLine());
+         _goalCompletion = int.TryParse(Console.ReadLine());
 
         Console.Write("What is the bonus for accomplishing it that many times? ");
         Console.ReadLine();
-         _bonusPoints = int.Parse(Console.ReadLine());
+         _bonusPoints = int.TryParse(Console.ReadLine());
     }
 
     public override string GetGoalSummary()
@@ -62,6 +62,6 @@ public class Checklist : Goal
         {
             return _points;
         }
-        
+
     }
 }
