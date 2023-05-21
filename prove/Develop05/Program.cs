@@ -35,7 +35,8 @@ class Program
         do
         {   
             // totalPoints = _points
-
+            Console.WriteLine(totalPoints);
+    
             foreach(string menuItem in menu)
             {
                 Console.WriteLine(menuItem);
@@ -77,36 +78,38 @@ class Program
             else if (menuUserInput == 3)
             {
                 // Save goals to a file.
-                goals.SaveToCSV();
+                Goal.SaveToFile(totalPoints, goals);
 
                 Console.WriteLine("Saving goals...");
             }
 
             else if (menuUserInput == 4)
             {
-                // Load goals from a file.
-                goals.LoadToCSV();
 
-                
-                Console.WriteLine("Loading Goals...");
+                // Load goals from a file.
+                totalPoints = Goal.LoadFromFile(goals);
                 
             }
 
             else if (menuUserInput == 5)
             {
+                Console.WriteLine("Recording event...");    
                 // Record Event.
 
                 // list goals
-                // foreach (Goal goal in goals)
-                // {
-                //     string summary = goal.GetGoalSummary();
-                //     Console.WriteLine(summary);
-                // }
-                // select goal
+            for (int i = 0; i < goals.Count(); i++)
+            {
+                Console.WriteLine($"{i+1}. {goals[i].GetName()}");
+                
+            }
+               int recordedGoal = int.Parse(Console.ReadLine());
+               int points = goals[recordedGoal-1].RecordEvent();
+               
+                Console.WriteLine($"Congratulations! You have earned {points}!");
+                totalPoints += points;
 
-                //total += goals[electedIndex].RecordEvent()
-
-                Console.WriteLine("Recording event...");
+                Console.WriteLine($"You now have {totalPoints}.");
+                    
             }
 
             else 

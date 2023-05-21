@@ -4,8 +4,8 @@ public class Eternal : Goal
 {
     
 
-    public Eternal(string name, string description, int points, bool completed) : 
-    base (name, description, points)
+    public Eternal(string name, string description, int points, DateTime dateCreated) : 
+    base (name, description, points, dateCreated)
     {
         
 
@@ -28,6 +28,11 @@ public class Eternal : Goal
         }
     }
 
+    public override string GetGoalFormat()
+    {
+        return $"EternalGoal:{this.GetDate()},{_name},{_description},{_points}";
+    }
+
     public override bool IsComplete()
     {
         return false;
@@ -35,14 +40,7 @@ public class Eternal : Goal
 
     public override int RecordEvent()
     {
-        if (IsComplete() == true)
-        {
-            return _points;
-        }
-        else
-        {
-            return 0;
-        }
+        return _points;
         
     }
 }

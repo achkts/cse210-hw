@@ -7,8 +7,8 @@ public class Checklist : Goal
     private int _progress;
 
     public Checklist(string name, string description, 
-    int points, int bonusPoints, int goalCompletion, int progress) : 
-    base (name, description, points)
+    int points, int bonusPoints, int goalCompletion, int progress, DateTime dateCreated) : 
+    base (name, description, points, dateCreated)
     {
         _bonusPoints = bonusPoints;
         _goalCompletion = goalCompletion;
@@ -21,16 +21,20 @@ public class Checklist : Goal
 
     }
 
+   public override string GetGoalFormat()
+    {
+        return $"ChecklistGoal:{this.GetDate()},{_name},{_description},{_points},{_bonusPoints},{_goalCompletion},{_progress}";
+    }
+
     public override void CreateGoal()
     {
         base.CreateGoal();
         Console.Write("How many times does this goal need to be accomplished for a bonus? ");
-        Console.ReadLine();
-         _goalCompletion = int.TryParse(Console.ReadLine());
+         _goalCompletion = int.Parse(Console.ReadLine());
+        
 
         Console.Write("What is the bonus for accomplishing it that many times? ");
-        Console.ReadLine();
-         _bonusPoints = int.TryParse(Console.ReadLine());
+         _bonusPoints = int.Parse(Console.ReadLine());
     }
 
     public override string GetGoalSummary()
@@ -56,7 +60,7 @@ public class Checklist : Goal
         
         if (IsComplete() == true)
         {
-            return _bonusPoints;
+            return _bonusPoints + _points;
         }
         else
         {
