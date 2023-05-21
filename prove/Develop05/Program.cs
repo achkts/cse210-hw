@@ -35,7 +35,7 @@ class Program
         do
         {   
             // totalPoints = _points
-            Console.WriteLine(totalPoints);
+            Console.WriteLine($"Total Points Earned: {totalPoints}");
     
             foreach(string menuItem in menu)
             {
