@@ -136,7 +136,7 @@ public abstract class Goal
    
 
    
-    // public abstract double GetArea();
+    
 
 
 }

@@ -1,0 +1,4 @@
+750
+SimpleGoal:2023-24-05,Eat healthy,eat an apple a day,50,True
+EternalGoal:2023-24-05,scripture study,study 30 mins a day,500
+ChecklistGoal:2023-24-05,make bed,make bed every day,200,1000,6,1
