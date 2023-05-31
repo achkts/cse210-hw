@@ -1,18 +1,34 @@
 using System;
 using System.Collections.Generic;
 
-public class Fabric
+public class Fabric 
 {
-    private string fabricName;
-    private string patternName;
+    private string fabricType;
+    private string fabricDesigner;
 
-    public string GetFabricName()
-    {
-        return " ";
-    }
+public Fabric()
+{
 
-    public string GetPatternName()
-    {
-        return " ";
-    } 
+}
+public Fabric(string _fabricType, string _fabricDesigner)
+{
+    fabricType = _fabricType;
+    fabricDesigner = _fabricDesigner;
+    
+
+}
+
+public string ToSummary()
+{
+    return $"{fabricType}, {fabricDesigner}";
+}
+
+public string ToFormat()
+{
+    return $"{fabricType}| {fabricDesigner}";
+}
+    
+
+
+    
 }

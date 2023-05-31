@@ -8,9 +8,11 @@ public class Menu {
     {
 
     }
-        int _menuUserInput = 0;
         
-        List<Quilt> goals = new List<Quilt>();
+        
+        List<Quilt> quilts = new List<Quilt>();
+
+        
 
 
     public string RunMenu()
@@ -31,8 +33,7 @@ public class Menu {
         // While user input is not 5
         do
         {   
-            // totalPoints = _points
-            
+                      
     
             foreach(string menuItem in menu)
             {
@@ -51,7 +52,14 @@ public class Menu {
             if (menuUserInput == 1)
             {
                 // Add new Quilt.
-               Console.WriteLine("Adding new quilt...");
+               NewQuiltMenu questions = new NewQuiltMenu();
+               Quilt newQuilt = questions.CreateQuilt();
+
+               // add quilts to list.
+               quilts.Add(newQuilt);
+
+                Console.WriteLine("Adding new quilt...");
+                Console.WriteLine($"Total quilts in library: {quilts.Count}");  
                 
             }
 
@@ -60,11 +68,11 @@ public class Menu {
                 // List Quilts.
                 Console.WriteLine("Listing quilts...");
                 
-                // foreach (Quilt quilt in quilts)
-                // {
-                //     string summary = quilt.GetQuiltSummary();
-                //     Console.WriteLine(summary);
-                // }
+                foreach (Quilt quilt in quilts)
+                {
+                    string summary = quilt.GetQuiltSummary();
+                    Console.WriteLine(summary);
+                }
                 
                 
 
@@ -73,17 +81,20 @@ public class Menu {
             else if (menuUserInput == 3)
             {
                 // Save quilts to a file.
-                // Quilts.SaveToFile(totalQuilts, quilts);
+                // int totalQuilts = quilts.Count;
 
-                Console.WriteLine("Saving quilts...");
+                FileSaver.SaveToFile(quilts);
+
+        
             }
 
             else if (menuUserInput == 4)
             {
 
                 // Load goals from a file.
-                // totalQuilts = Quilts.LoadFromFile(quilts);
-                Console.WriteLine("Loading quilts....");
+                Console.WriteLine("Loading file of quilts....");
+                FileLoader.LoadFromFile(quilts);
+                Console.WriteLine("Loaded.");
                 
             }
 
@@ -94,13 +105,11 @@ public class Menu {
                string randQuote = quote.GetRandomQuote();
                Console.WriteLine(randQuote);
 
-               // How many quilts recorded.
-
-                
+                           
             }
 
         } while (menuUserInput != 5);
 
-        return "";
+        return $"Total Quilts: {quilts.Count}";
     }
 }

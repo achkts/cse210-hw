@@ -2,7 +2,7 @@ using System;
 
 public class FileSaver
 {
-    public void SaveToFile(int totalQuilts, List<Quilt> quilts)
+    public static void SaveToFile(List<Quilt> quilts)
     {
 
         Console.WriteLine("What is the file name? ");
@@ -10,8 +10,7 @@ public class FileSaver
 
         using (StreamWriter outputFile = new StreamWriter(filename, false))
         {
-            outputFile.WriteLine(totalQuilts);
-
+            
             foreach (Quilt quilt in quilts)
             {
                 outputFile.WriteLine(quilt.GetQuiltFormat());
